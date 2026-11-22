@@ -29,11 +29,14 @@ Começar pela janela mais curta e **ir ampliando só se não encontrar vagas apr
 | 7 | `r604800` | 1 semana (só vagas com menos de ~100 candidatos) |
 
 - Em cada passo, varrer todos os termos × locais na ordem de prioridade antes de ampliar.
-- Parar de ampliar assim que a cota (`max_inscricoes_por_rodada`) estiver cheia.
+- Parar de ampliar assim que a cota (`max_inscricoes_por_dia`) estiver cheia.
 - Na rodada seguinte, recomeçar do passo 1 (as vagas antigas já vistas ficam na base e são puladas).
 - Anotar em `publicada_ha` e no log em que passo a vaga foi achada (ex.: "janela 3 h").
 
 Remoto: `location=Brasil&f_WT=2`. Locais com limite de dias presenciais (ex.: híbrido no máx. 2x/semana) → ler a descrição; se não disser, aceitar e anotar "dias presenciais não informados".
+
+## ⚠️ O filtro de modelo NÃO é confiável
+A listagem pública (`jobs-guest/.../seeMoreJobPostings`) aceita `f_TPR` (janela) mas **ignora `f_WT`** (presencial/híbrido/remoto) em boa parte dos resultados (teste 22/11/2026: 7 de 10 "híbridas" eram presenciais). Sempre **abrir a vaga logada** e ler o selo abaixo do título ("Presencial" / "Híbrido" / "Remoto") antes de recomendar; conferir também no site da empresa (ex.: Pandapé mostra "Presential"). Presencial só entra se o usuário abrir exceção (ex.: indicação).
 
 ## Ler o card e a vaga
 - Extrair por JS da lista: título, empresa, local, "há X minutos", nº de candidatos, selo "Candidatura simplificada", link `/jobs/view/<id>/`.
@@ -45,6 +48,8 @@ Remoto: `location=Brasil&f_WT=2`. Locais com limite de dias presenciais (ex.: h�
 Sinais: página da empresa com "10.001+ funcionários", sede ou presença em vários países, nome global conhecido, vaga pedindo inglês/espanhol, "global", "LATAM", "headquarters". Marcar `multinacional=sim/nao/provavel`. Multinacional sobe na prioridade, mas não é obrigatório.
 
 ## Filtros que descartam a vaga
+- Tudo que estiver em `excluir` do `preferencias.json` (ex.: escritórios de advocacia: nome com "Advogados"/"Advocacia"/"Sociedade de Advogados" ou setor "Serviços jurídicos" na página da empresa).
+- Requisito marcado como **obrigatório** que o CV não comprova (sistema específico, certificação, registro profissional) → descartar e substituir por outra vaga, de preferência em multinacional. "Desejável/diferencial" não descarta.
 - Nível acima do perfil (pleno/sênior/coordenador/especialista com 5+ anos) → descartar.
 - Local fora da lista ou presencial fora do permitido → descartar.
 - Estágio, quando o perfil já é formado (a não ser que as preferências permitam).

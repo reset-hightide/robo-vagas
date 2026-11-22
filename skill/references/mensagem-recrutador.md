@@ -16,7 +16,7 @@ Acredito que minha experiência com [COMPETÊNCIA REAL DO CV] pode contribuir ba
 
 Vou deixar meu currículo por aqui também, caso você possa dar uma olhadinha.
 
-Muito obrigada pela atenção, [NOME_RECRUTADORA]!
+Obrigada!
 ```
 
 ## Regras (todas obrigatórias)
@@ -28,7 +28,7 @@ Muito obrigada pela atenção, [NOME_RECRUTADORA]!
 6. 85–125 palavras, 4–5 parágrafos curtos, português do Brasil, conversacional.
 7. Proibido: "venho por meio desta", "agregar valor", "sinergia", "encontro-me à disposição", "quaisquer esclarecimentos", travessões longos em excesso, listas, emojis demais, elogios genéricos à empresa.
 8. Variar abertura, ordem e expressões entre mensagens (nunca duas iguais). Pequenas imperfeições naturais são bem-vindas ("bastante", "super", "dar uma olhadinha").
-9. Terminar com pedido leve (olhar o currículo / conversar).
+9. Pedido leve (olhar o currículo / conversar) e fechar só com "Obrigado(a)!", sem repetir o nome (mais natural).
 10. Nunca citar IA, robô, automação ou Claude.
 
 ## Conexões típicas (usar só se o CV sustentar)
@@ -45,3 +45,9 @@ Muito obrigada pela atenção, [NOME_RECRUTADORA]!
 - A mensagem completa só vai depois de aprovada no Lembrete **e** do convite aceito (ou direto se já for conexão de 1º grau).
 - Com Premium (`linkedin_premium=true`): InMail com a mensagem aprovada **e** convite de conexão.
 - Nunca mandar duas mensagens para a mesma pessoa sobre a mesma vaga; se for a mesma recrutadora para outra vaga, mencionar as duas numa só.
+
+## Mensagem para o gestor / pessoa da área
+- Mesmas regras (85–125 palavras, natural, nada inventado, pergunta leve, termina com "Obrigada!").
+- Foco na rotina da área (o que a pessoa vai fazer no dia a dia), não no processo seletivo; dizer que se candidatou e que gostaria de contribuir com o time.
+- **Sempre** incluir a ideia de esforço máximo, com variação natural: "pode esperar de mim esforço máximo, sempre", "pode contar com meu esforço máximo em tudo que eu fizer".
+- Não pedir emprego diretamente; pedir um olhar no currículo ou uma conversa rápida.
