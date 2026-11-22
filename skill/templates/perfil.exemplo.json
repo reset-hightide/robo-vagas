@@ -12,5 +12,19 @@
   "pretensao_salarial": 0,
   "disponibilidade": "imediata",
   "genero_raca_pcd": "prefiro não informar",
-  "senha_arquivo": "senha"
+  "senha_arquivo": "senha",
+  "salario_atual": 0,
+  "cnh": "",
+  "genero": "",
+  "nome_mae": "",
+  "nome_pai": "",
+  "endereco_sp": {},
+  "endereco_sorocaba": {},
+  "parentes_na_empresa": "",
+  "familiar_PEP": "",
+  "processos_regulatorios": "",
+  "restricoes_vinculos_anteriores": "",
+  "setor_publico_5_anos": "",
+  "oab": "",
+  "indicacoes": {}
 }

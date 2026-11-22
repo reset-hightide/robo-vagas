@@ -71,13 +71,18 @@
   ],
   "aceita_presencial": false,
   "aceita_estagio": false,
-  "max_inscricoes_por_rodada": 10,
-  "max_convites_por_rodada": 15,
   "linkedin_premium": false,
   "sites_externos": "criar_conta",
   "aprovacao_mensagens": "whatsapp_lembrete",
-  "whatsapp_chat": "Lembrete",
+  "whatsapp_chat": "",
   "ajustar_perfil_linkedin": true,
   "onedrive_pasta": "onedrive:18. Robô de Vagas/Fulana",
-  "follow_up_dias": 7
+  "follow_up_dias": 7,
+  "max_inscricoes_por_dia": 10,
+  "max_convites_por_dia": 10,
+  "canal_aprovacao": "terminal",
+  "excluir": [
+    "exemplo: escritórios de advocacia",
+    "vagas com requisito obrigatório que a pessoa não tem"
+  ]
 }
