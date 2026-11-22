@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Robô de vagas
+Comment=Procura vagas no LinkedIn, adapta o CV, se candidata e prepara mensagens para recrutadoras
+Exec=konsole --workdir @HOME@ -e @HOME@/.local/bin/robo-vagas
+Icon=@DIR@/launchers/icone.png
+Terminal=false
+Categories=Office;
