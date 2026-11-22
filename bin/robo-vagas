@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Inicia o Robô de vagas: abre o Claude Code com o Chrome conectado e roda a skill
+# agora e depois de hora em hora (enquanto esta janela ficar aberta).
+# Uso: robo-vagas            -> loop de hora em hora
+#      robo-vagas uma-vez    -> só uma rodada
+cd "$HOME"
+CLAUDE="$(command -v claude || echo "$HOME/.local/bin/claude")"
+if [ "$1" = "uma-vez" ]; then
+  "$CLAUDE" --chrome "/robo-vagas"
+else
+  "$CLAUDE" --chrome "/loop 1h /robo-vagas"
+fi
+exec bash
