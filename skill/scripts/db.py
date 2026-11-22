@@ -11,6 +11,8 @@ Uso:
   db.py PERFIL log "texto"         -> registra evento da rodada
   db.py PERFIL rodada              -> resumo da rodada atual (desde a última 'inicio')
   db.py PERFIL inicio              -> marca início de rodada
+  db.py PERFIL hoje                -> inscrições e convites feitos hoje (limite diário)
+Ao inscrever: set status=inscrita inscrita_em="AAAA-MM-DD HH:MM"; ao convidar: convite_em=...
 Campos: ver COLS.
 """
 import datetime as dt, json, os, sqlite3, sys
@@ -18,10 +20,11 @@ import datetime as dt, json, os, sqlite3, sys
 BASE = os.path.expanduser("~/.config/robo-vagas/perfis")
 COLS = [
     "criado", "atualizado", "plataforma", "titulo", "empresa", "multinacional", "area", "nivel",
-    "local", "modelo", "link", "link_externo", "publicada_ha", "status", "motivo",
+    "local", "modelo", "link", "link_externo", "publicada_ha", "status", "motivo", "inscrita_em",
     "cv_arquivo", "cv_titulo", "palavras_chave",
     "seguiu_empresa", "recrutador_nome", "recrutador_link", "recrutador_cargo", "recrutador_confirmado",
     "convite_status", "convite_em", "msg_texto", "msg_status", "msg_enviada_em",
+    "gestor_nome", "gestor_cargo", "gestor_link", "gestor_convite", "gestor_msg_texto", "gestor_msg_status",
     "perfil_ajustes", "follow_up_em", "obs",
 ]
 # status: encontrada | descartada | inscrita | inscricao_pendente (site externo travou) | entrevista | recusada | contratada
@@ -122,6 +125,11 @@ def main():
         print("== Follow-ups vencidos:")
         for r in c.execute("select id,empresa,titulo,follow_up_em from vagas where follow_up_em<>'' and follow_up_em<=? and status='inscrita'", (hoje,)):
             print(f"  #{r['id']} {r['empresa']} — {r['titulo']} (desde {r['follow_up_em']})")
+    elif cmd == "hoje":
+        h = dt.date.today().isoformat()
+        i = c.execute("select count(*) from vagas where inscrita_em like ?", (h + "%",)).fetchone()[0]
+        v = c.execute("select count(*) from vagas where convite_em like ?", (h + "%",)).fetchone()[0]
+        print(f"inscricoes_hoje={i} convites_hoje={v}")
     elif cmd == "inicio":
         c.execute("insert into eventos (quando,texto) values (?,?)", (agora(), "INICIO_RODADA")); c.commit(); print("OK")
     elif cmd == "log":

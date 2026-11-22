@@ -14,16 +14,53 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 
 BASE = os.path.expanduser("~/.config/robo-vagas/perfis")
 CAB = [
-    ("ID", "id", 5), ("Data", "criado", 16), ("Status", "status", 14), ("Empresa", "empresa", 24),
+    ("ID", "id", 5), ("Data", "criado", 16), ("Situação", "_situacao", 60), ("Status", "status", 14), ("Empresa", "empresa", 24),
     ("Multinacional", "multinacional", 12), ("Vaga", "titulo", 34), ("Área", "area", 16), ("Nível", "nivel", 10),
     ("Local", "local", 18), ("Modelo", "modelo", 10), ("Plataforma", "plataforma", 12), ("Link da vaga", "link", 30),
     ("Link externo", "link_externo", 30), ("CV usado", "cv_arquivo", 30), ("Título do CV", "cv_titulo", 30),
     ("Palavras-chave", "palavras_chave", 40), ("Seguiu empresa", "seguiu_empresa", 10),
     ("Recrutador(a)", "recrutador_nome", 22), ("Cargo recrutador", "recrutador_cargo", 22),
     ("Link recrutador", "recrutador_link", 30), ("Convite", "convite_status", 12), ("Mensagem", "msg_status", 14),
-    ("Msg enviada em", "msg_enviada_em", 16), ("Ajustes no perfil", "perfil_ajustes", 40),
-    ("Follow-up em", "follow_up_em", 12), ("Obs.", "obs", 40), ("Texto da mensagem", "msg_texto", 60),
+    ("Msg enviada em", "msg_enviada_em", 16), ("Gestor/área", "gestor_nome", 22), ("Cargo gestor", "gestor_cargo", 26), ("Link gestor", "gestor_link", 30), ("Convite gestor", "gestor_convite", 12), ("Msg gestor", "gestor_msg_status", 14),
+    ("Ajustes no perfil", "perfil_ajustes", 40),
+    ("Follow-up em", "follow_up_em", 12), ("Obs.", "obs", 40), ("Texto da mensagem (RH)", "msg_texto", 60), ("Texto da mensagem (gestor)", "gestor_msg_texto", 60),
 ]
+
+
+def situacao(r):
+    """Frase em português com o pé da vaga (o que já foi feito e o que falta)."""
+    s, m, c = r["status"] or "", r["msg_status"] or "", r["convite_status"] or ""
+    if s == "descartada":
+        return "Descartada: " + (r["motivo"] or "")
+    if s == "encontrada":
+        return "Selecionada, candidatura ainda não feita"
+    if s == "inscricao_pendente":
+        return "Candidatura pendente: " + (r["motivo"] or "falta ação no site da empresa")
+    partes = ["Candidatura feita" if s == "inscrita" else s.capitalize()]
+    if r["seguiu_empresa"] == "sim":
+        partes.append("empresa seguida")
+    if m == "aguardando_aprovacao":
+        partes.append("mensagem aguardando sua aprovação no WhatsApp")
+    elif m == "ajustar":
+        partes.append("mensagem em ajuste")
+    elif m == "aprovada" and c == "enviado":
+        partes.append("mensagem aprovada, aguardando a recrutadora aceitar a conexão no LinkedIn para enviar")
+    elif m == "aprovada":
+        partes.append("mensagem aprovada, pronta para enviar")
+    elif m == "enviada":
+        partes.append(f"mensagem enviada em {r['msg_enviada_em'] or ''}; aguardando resposta")
+    elif c == "enviado":
+        partes.append("convite de conexão enviado")
+    g = r["gestor_msg_status"] or ""
+    if g == "aguardando_aprovacao":
+        partes.append("mensagem ao gestor aguardando aprovação")
+    elif g == "aprovada":
+        partes.append("mensagem ao gestor aprovada, aguardando aceite")
+    elif g == "enviada":
+        partes.append("mensagem ao gestor enviada")
+    if not r["recrutador_nome"] and s == "inscrita":
+        partes.append("recrutadora ainda não encontrada")
+    return " · ".join(partes)
 
 
 def link_view(v):
@@ -46,7 +83,7 @@ def main():
     for r in c.execute("select * from vagas order by id"):
         row = []
         for _, k, _ in CAB:
-            v = r[k] if k in r.keys() else ""
+            v = situacao(r) if k == "_situacao" else (r[k] if k in r.keys() else "")
             if k in ("link",):
                 v = link_view(v)
             row.append(v or "")
@@ -61,7 +98,7 @@ def main():
             cell.alignment = Alignment(vertical="top", wrap_text=False)
             if isinstance(cell.value, str) and cell.value.startswith("http"):
                 cell.hyperlink = cell.value; cell.font = Font(color="0563C1", underline="single")
-    ws.freeze_panes = "E2"
+    ws.freeze_panes = "F2"
     if ws.max_row > 1:
         t = Table(displayName="Candidaturas", ref=f"A1:{get_column_letter(len(CAB))}{ws.max_row}")
         t.tableStyleInfo = TableStyleInfo(name="TableStyleLight9", showRowStripes=True)
