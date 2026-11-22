@@ -25,7 +25,7 @@ Requisitos: Claude Code com a extensão **Claude in Chrome**, Google Chrome com 
 
 ```bash
 git clone https://github.com/reset-hightide/robo-vagas.git ~/projects/robo-vagas
-cd ~/projects/robo-vagas && ./install.sh
+cd ~/projects/robo-vagas && bash install.sh
 ```
 
 Isso cria o atalho **Robô de vagas** no Desktop. Dois cliques e ele roda uma vez na hora e depois **de hora em hora**, enquanto a janela ficar aberta. Para uma rodada só: `robo-vagas uma-vez` no terminal, ou `/robo-vagas` dentro do Claude Code.
