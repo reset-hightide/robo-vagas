@@ -6,7 +6,7 @@ Serve para qualquer pessoa: na primeira vez ele faz um questionário (uma pergun
 
 ## O que ele faz em cada rodada
 
-1. **Radar das vagas frescas.** Procura vagas publicadas **na última hora** (truque da URL do LinkedIn: `f_TPR=r86400` vira `f_TPR=r3600`), na ordem de prioridade que você definir: cargos, áreas, níveis, multinacionais, cidades, híbrido/remoto.
+1. **Radar das vagas frescas.** Roda de hora em hora procurando vagas publicadas **na última hora** (truque da URL do LinkedIn: `f_TPR=r86400` vira `f_TPR=r3600`). Se não achar nada, amplia aos poucos: 2 h, 3 h, 24 h, 48 h, 72 h, 1 semana. Segue a ordem de prioridade que você definir: cargos, áreas, níveis, multinacionais, cidades, híbrido/remoto.
 2. **Lê a vaga inteira** e descarta o que não serve (nível, local, presencial demais...).
 3. **Adapta o CV** com as palavras-chave que os filtros automáticos (ATS) procuram nessa vaga. Só reescreve o que **já existe** no CV: muda o título, o resumo, a ordem e os termos. Um verificador (`cv.py check`) aponta qualquer palavra nova para revisão.
 4. **Faz a inscrição** pela Candidatura simplificada ou em sites externos (Gupy, Workday...). Testes de lógica, inglês, comportamentais e vídeo **nunca** são respondidos pelo robô: ficam pendentes para a pessoa.
@@ -28,7 +28,7 @@ git clone https://github.com/reset-hightide/robo-vagas.git ~/projects/robo-vagas
 cd ~/projects/robo-vagas && ./install.sh
 ```
 
-Isso cria o atalho **Robô de vagas** no Desktop. Dois cliques e ele começa. No Claude Code, também dá para digitar `/robo-vagas`.
+Isso cria o atalho **Robô de vagas** no Desktop. Dois cliques e ele roda uma vez na hora e depois **de hora em hora**, enquanto a janela ficar aberta. Para uma rodada só: `robo-vagas uma-vez` no terminal, ou `/robo-vagas` dentro do Claude Code.
 
 ## Onde ficam os dados
 
