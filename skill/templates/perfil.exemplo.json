@@ -1,0 +1,16 @@
+{
+  "nome": "",
+  "email": "",
+  "telefone": "",
+  "linkedin": "",
+  "data_nascimento": "DD/MM/AAAA",
+  "cpf": "",
+  "cep": "",
+  "endereco": "",
+  "cidade": "",
+  "uf": "",
+  "pretensao_salarial": 0,
+  "disponibilidade": "imediata",
+  "genero_raca_pcd": "prefiro não informar",
+  "senha_arquivo": "senha"
+}

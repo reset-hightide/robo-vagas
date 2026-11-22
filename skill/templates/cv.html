@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Currículo</title>
+<style>
+@page { size: A4; margin: 13mm 15mm 12mm 15mm; }
+* { box-sizing: border-box; }
+body { font-family: Calibri, Carlito, "Liberation Sans", Arial, sans-serif; font-size: 10pt; color: #000; line-height: 1.28; margin: 0; }
+header { text-align: center; }
+h1 { color: #1f3864; font-size: 19pt; margin: 0 0 3px; font-weight: 700; }
+.contato { font-size: 8.5pt; color: #444; }
+.contato a { color: #0563c1; }
+.titulo { margin: 10px 0 12px; padding: 4px 0; border-top: 1px solid #999; border-bottom: 1px solid #999; text-align: center; color: #1f3864; font-weight: 700; font-size: 10.5pt; }
+h2 { color: #2e5496; font-size: 10.5pt; letter-spacing: 1.6px; text-transform: uppercase; border-bottom: 1px solid #999; padding-bottom: 2px; margin: 12px 0 6px; }
+p { margin: 0 0 3px; text-align: justify; }
+.cab { text-align: left; margin-top: 6px; }
+.cab i, .form i { color: #666; font-size: 9pt; }
+ul { margin: 2px 0 2px 0; padding-left: 26px; }
+li { margin: 1.5px 0; }
+.res { margin-left: 10px; }
+</style></head>
+<body>
+<header>
+  <h1>{{NOME}}</h1>
+  <div class="contato">{{CONTATO}}<br><a href="{{LINKEDIN}}">{{LINKEDIN}}</a></div>
+</header>
+<div class="titulo">{{TITULO}}</div>
+<h2>Resumo Profissional</h2>
+<p>{{RESUMO}}</p>
+<h2>Experiência Profissional</h2>
+{{EXPERIENCIAS}}
+<h2>Formação Acadêmica</h2>
+<div class="form">{{FORMACAO}}</div>
+<h2>Competências</h2>
+<ul>{{COMPETENCIAS}}</ul>
+{{EXTRAS}}
+<h2>Idiomas</h2>
+<p>{{IDIOMAS}}</p>
+</body></html>

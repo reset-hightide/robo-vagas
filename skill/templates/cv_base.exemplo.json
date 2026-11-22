@@ -1,0 +1,43 @@
+{
+  "nome": "Fulana de Tal",
+  "contato": [
+    "Cidade, UF",
+    "+55 11 90000-0000",
+    "fulana@email.com"
+  ],
+  "linkedin": "https://www.linkedin.com/in/fulana/",
+  "titulo": "Cargo-alvo | Área",
+  "resumo": "Resumo fiel ao CV original.",
+  "experiencias": [
+    {
+      "cargo": "Cargo",
+      "empresa": "Empresa",
+      "periodo": "Jan/2024 – atual",
+      "bullets": [
+        "Atividade real 1.",
+        "Atividade real 2."
+      ],
+      "resultado": ""
+    }
+  ],
+  "formacao": [
+    {
+      "curso": "Curso",
+      "instituicao": "Instituição",
+      "detalhe": "concluído"
+    }
+  ],
+  "competencias": [
+    {
+      "grupo": "Grupo",
+      "itens": "competências reais."
+    }
+  ],
+  "idiomas": [
+    {
+      "idioma": "Inglês",
+      "nivel": "Intermediário"
+    }
+  ],
+  "secoes_extras": []
+}

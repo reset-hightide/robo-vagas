@@ -1,0 +1,83 @@
+{
+  "nome_curto": "Fulana",
+  "primeiro_nome": "Fulana",
+  "pronome": "ela",
+  "cargos_prioridade": [
+    {
+      "ordem": 1,
+      "niveis": [
+        "Assistente",
+        "Analista Júnior"
+      ],
+      "multinacional": "preferir",
+      "areas": [
+        "Jurídico",
+        "Compras",
+        "Gestão de Fornecedores",
+        "Contratos",
+        "Contas a Receber",
+        "Contas a Pagar"
+      ]
+    }
+  ],
+  "termos_busca": [
+    "assistente jurídico",
+    "analista jurídico júnior",
+    "assistente de compras",
+    "analista de compras júnior",
+    "comprador júnior",
+    "assistente de suprimentos",
+    "gestão de fornecedores",
+    "analista de fornecedores",
+    "assistente de contratos",
+    "analista de contratos júnior",
+    "assistente de contas a receber",
+    "analista de contas a receber",
+    "assistente de contas a pagar",
+    "analista de contas a pagar",
+    "procurement assistant",
+    "junior buyer",
+    "accounts payable",
+    "accounts receivable",
+    "contract analyst"
+  ],
+  "f_E": "2,3",
+  "locais": [
+    {
+      "location": "São Paulo, Brasil",
+      "f_WT": "3",
+      "regra": "híbrido"
+    },
+    {
+      "location": "Sorocaba, São Paulo, Brasil",
+      "f_WT": "3",
+      "regra": "híbrido até 2x por semana presencial"
+    },
+    {
+      "location": "Ibiúna, São Paulo, Brasil",
+      "f_WT": "3",
+      "regra": "híbrido até 2x por semana presencial"
+    },
+    {
+      "location": "Itu, São Paulo, Brasil",
+      "f_WT": "3",
+      "regra": "híbrido até 2x por semana presencial"
+    },
+    {
+      "location": "Brasil",
+      "f_WT": "2",
+      "regra": "remoto"
+    }
+  ],
+  "aceita_presencial": false,
+  "aceita_estagio": false,
+  "max_inscricoes_por_rodada": 10,
+  "max_convites_por_rodada": 15,
+  "linkedin_premium": false,
+  "sites_externos": "criar_conta",
+  "aprovacao_mensagens": "whatsapp_lembrete",
+  "whatsapp_chat": "Lembrete",
+  "ajustar_perfil_linkedin": true,
+  "onedrive_pasta": "onedrive:18. Robô de Vagas/Fulana",
+  "follow_up_dias": 7
+}
