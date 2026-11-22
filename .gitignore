@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.db
+*.xlsx
+perfis/
+cvs/
+credenciais.json
+senha
+perfil.json
