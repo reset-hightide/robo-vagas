@@ -72,7 +72,10 @@ Seguir `references/busca-linkedin.md`. Termos × locais na ordem de prioridade; 
 8. Gravar tudo no `vagas.db`, `follow_up_em`, e **atualizar a planilha na hora** (`scripts/planilha.py`) — coluna "Situação" em português.
 
 ## 5. Fim da rodada
-Planilha atualizada; resumo curto no terminal: o que foi feito, o que chegou por e-mail/LinkedIn, o que está esperando a pessoa. Fechar as abas abertas pelo robô.
+1. Planilha atualizada (e link de visualização: `rclone link "<onedrive_pasta>/Candidaturas <Nome>.xlsx"`).
+2. **Relatório executivo em PDF** (1 página A4 paisagem, visual): **só as vagas em que a candidatura foi feita** — um cartão por vaga (empresa, vaga, local/modelo, selo "Inscrita", checklist: CV adaptado · empresa seguida · RH e gestor convidados · mensagens), KPIs no topo e 3 próximos passos. Modelo: `templates/resumo_executivo.exemplo.html` → `--print-to-pdf`. Conferir o PNG antes de enviar.
+3. Mandar o PDF + **texto curto** (pendências em 1–2 linhas) + link da planilha para os contatos definidos em `preferencias.json` (`relatorio_para`). Tabela em texto no WhatsApp fica ruim: não usar.
+4. Resumo curto no terminal e fechar as abas abertas pelo robô.
 
 ## Regras
 - **Nunca mentir** (CV, formulário, mensagem, perfil). Na dúvida, perguntar à pessoa.
